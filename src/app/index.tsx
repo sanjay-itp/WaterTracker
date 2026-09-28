@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign:"center",
         padding: 25,
+        fontFamily: "times new roman",
         //margin: 3,
         fontWeight: "bold",
     },
@@ -69,7 +70,7 @@ export default function index(){
             </View>
             
             <SafeAreaView edges={["bottom"]} style={styles.actionContainer}>
-                <Button title="Get Started" type="primary" onPress={() => router.push('/signup')} />
+                <Button title="Get Started" type="primary" onPress={() => router.replace('/signup')} />
                 <View style={styles.loginContainer}>
                     <Text style={styles.loginText}>Already have account? </Text>
                     <Link href="/login" style={styles.loginTextLink}>Log In</Link>

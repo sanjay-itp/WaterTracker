@@ -10,6 +10,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { Platform } from "react-native";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
 
 // getReactNativePersistence isn't in the web typings, so load it via require
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -25,8 +27,13 @@ const firebaseConfig = {
   measurementId: "G-SJM5ZVW23K",
 };
 
-// Initialize immediately so `auth` is never undefined
+// const app =initializeApp (firebaseConfig);
+
+// export const auth=getAuth(app);
+// export const db = getFirestore(app);
+
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+export const db = getFirestore(app);
 
 let authInstance: Auth;
 try {

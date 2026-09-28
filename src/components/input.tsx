@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         borderWidth: 1,
-        borderColor: '#C8EDEA',
+        borderColor: '#34069e',
         borderRadius: 8,
-        backgroundColor: '#F0FAF9',
+        backgroundColor: '#b5d6ef',
     },
     input: {
         minHeight: 45, 
