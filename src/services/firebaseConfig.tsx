@@ -1,43 +1,54 @@
 import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
-import { FirebaseApp, getApp, getApps, initializeApp } from "firebase/app";
-import { Auth, createUserWithEmailAndPassword, getAuth, initializeAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getApp, getApps, initializeApp } from "firebase/app";
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  getAuth,
+  initializeAuth,
+  signInWithEmailAndPassword,
+  signOut as firebaseSignOut,
+  updateProfile,
+} from "firebase/auth";
+import { Platform } from "react-native";
 
-const firebaseAuth = require("firebase/auth");
-const persistence = typeof firebaseAuth?.getReactNativePersistence === "function" ? firebaseAuth.getReactNativePersistence(ReactNativeAsyncStorage) : undefined;
-
+// getReactNativePersistence isn't in the web typings, so load it via require
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { getReactNativePersistence } = require("firebase/auth");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCb7fedlLlsw8vqnlsC9_Wn3eqNnzRreRM",
+  apiKey: "YOUR_API_KEY",
   authDomain: "watertracker-46278.firebaseapp.com",
   projectId: "watertracker-46278",
   storageBucket: "watertracker-46278.firebasestorage.app",
   messagingSenderId: "410271363753",
   appId: "1:410271363753:web:a552fcd1831ebd4e8cefb8",
-  measurementId: "G-SJM5ZVW23K"
+  measurementId: "G-SJM5ZVW23K",
 };
 
+// Initialize immediately so `auth` is never undefined
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-let app: FirebaseApp | null = null;
-let auth: Auth;
-// Initialize Firebase
-export function initializeFirebase() {
-  app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-  try {
-    auth = initializeAuth(app, { persistence });
-  } catch (error) {
-    console.error("Error initializing auth", error);
-    auth = getAuth(app);
-  }
-  return { app, auth };
+let authInstance: Auth;
+try {
+  authInstance =
+    Platform.OS === "web"
+      ? getAuth(app)
+      : initializeAuth(app, {
+          persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+        });
+} catch (error) {
+  // Happens on fast refresh: auth was already initialized
+  authInstance = getAuth(app);
 }
 
+export const auth = authInstance;
+export { app };
 
 export async function signUp(fullName: string, email: string, password: string) {
-  const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-  await updateProfile(userCredential.user, { displayName: fullName })
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  await updateProfile(userCredential.user, { displayName: fullName });
   return userCredential;
 }
-
 
 export function signIn(email: string, password: string) {
   return signInWithEmailAndPassword(auth, email, password);
@@ -48,7 +59,5 @@ export function getCurrentUser() {
 }
 
 export function signOut() {
-  return signOut();
+  return firebaseSignOut(auth);
 }
-
-export { app, auth };

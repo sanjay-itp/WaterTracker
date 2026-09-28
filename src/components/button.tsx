@@ -25,7 +25,7 @@ type VariantConfig = {
 
 const variantConfig: Record<Props["type"] & string, VariantConfig> = {
     primary: {
-        gradient: ["#69AEA9", "#3F8782"],
+        gradient: ["#0703f1", "#251a76"],
         boxShadow: "0px 8px 20px rgba(62, 124, 120, 0.55)",
         borderColor: "#000000",
         textColor: "#FFFFFF",

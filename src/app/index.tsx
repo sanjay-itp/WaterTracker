@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
 
-//import { Background } from "@/assets/svg/background.svg";
+import Background from "@/assets/svg/background.svg";
 import { Button } from "@/components/button";
 import { auth } from "@/services/firebaseConfig";
 import { Link, Redirect, useRouter } from "expo-router";
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         top: 100,
         left: 0,
-        right: 0,
+        right:  0,
         bottom: 0,
     },
     loginContainer: {
@@ -34,26 +34,40 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     loginTextLink: {
-        color: "#438883",
+        color: "#000003",
         fontSize: 16,
         textDecorationLine: "underline",
+    },
+    Welcometext: {
+        color: "black",
+        fontSize: 30,
+        textAlign:"center",
+        padding: 25,
+        //margin: 3,
+        fontWeight: "bold",
     },
 });
 
 export default function index(){
-  const router = useRouter();
+    const router = useRouter();
 
-  //  if (auth.currentUser) {
-  //     return <Redirect href="/(home)/homepage" />;
-  //   }
+   if (auth.currentUser) {
+      return <Redirect href="/(home)/homepage" />;
+    }
     return (
         <View style={styles.container}>
-            {/* <View>
+            <SafeAreaView>
+                <View> 
+                <Text style={styles.Welcometext}>Our app will help you drink more water and lead a healthy lifestyle everyday!</Text>
+            </View>
+            </SafeAreaView>
+            <View>
                 <Background />
-                <Image
-                    source={require('../assets/svg/onboarding.png')}
-                    style={styles.logo} />
-            </View> */}
+                {/* <Image
+                    source={require('../assets/svg/background.svg')}
+                    style={styles.logo} /> */}
+            </View>
+            
             <SafeAreaView edges={["bottom"]} style={styles.actionContainer}>
                 <Button title="Get Started" type="primary" onPress={() => router.push('/signup')} />
                 <View style={styles.loginContainer}>
