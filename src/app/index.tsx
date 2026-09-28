@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
 
-import Background from "@/assets/svg/background.svg";
+import Logo from "@/assets/svg/logo.svg";
 import { Button } from "@/components/button";
 import { auth } from "@/services/firebaseConfig";
 import { Link, Redirect, useRouter } from "expo-router";
@@ -10,41 +10,41 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: "#000",          // was "#fff"
         justifyContent: "space-between",
     },
     actionContainer: {
         padding: 18,
     },
-    logo: {
-        position: "absolute",
-        top: 100,
-        left: 0,
-        right:  0,
-        bottom: 0,
+    logoBox: {
+        width: "50%",               
+        maxWidth: 2000,              
+        aspectRatio: 1,             
+        maxHeight: "100%",          
+        right: 50, 
+        bottom: 50,
     },
     loginContainer: {
         alignItems: "center",
         marginTop: 20,
         flexDirection: "row",
-        justifyContent: 'center',
+        justifyContent: "center",
     },
     loginText: {
-        color: "#444444",
+        color: "#BBBBBB",                 
         fontSize: 16,
     },
     loginTextLink: {
-        color: "#000003",
+        color: "#FFFFFF",                 
         fontSize: 16,
         textDecorationLine: "underline",
     },
     Welcometext: {
-        color: "black",
+        color: "#FFFFFF",                 
         fontSize: 30,
-        textAlign:"center",
-        padding: 25,
+        textAlign: "center",
+        padding: 20,
         fontFamily: "times new roman",
-        //margin: 3,
         fontWeight: "bold",
     },
 });
@@ -63,9 +63,9 @@ export default function index(){
             </View>
             </SafeAreaView>
             <View>
-                <Background />
+                <Logo style={styles.logoBox}/>
                 {/* <Image
-                    source={require('../assets/svg/background.svg')}
+                    source={require(../assets/svg/background.svg')}
                     style={styles.logo} /> */}
             </View>
             
