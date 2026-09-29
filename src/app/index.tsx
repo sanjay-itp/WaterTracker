@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
 
-import Logo from "@/assets/svg/logo.svg";
+import Logo from "@/assets/svg/applogo.svg";
 import { Button } from "@/components/button";
 import { auth } from "@/services/firebaseConfig";
 import { Link, Redirect, useRouter } from "expo-router";
@@ -11,18 +11,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#000",          
-        justifyContent: "space-between",
+        //justifyContent: "space-between",
     },
     actionContainer: {
         padding: 18,
     },
     logoBox: {
-        width: "50%",               
-        maxWidth: 2000,              
-        aspectRatio: 1,             
-        maxHeight: "100%",          
-        right: 50, 
-        bottom: 50,
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        paddingHorizontal: 24,
+        paddingVertical: 12,
+    },
+    logo: {
+        width: "70%",          
+        maxWidth: 320,         
+        //aspectRatio: 1,
+        padding: 50,        
     },
     loginContainer: {
         alignItems: "center",
@@ -46,6 +51,8 @@ const styles = StyleSheet.create({
         padding: 20,
         fontFamily: "times new roman",
         fontWeight: "bold",
+        //marginBottom: 50,
+        //borderBottomWidth: 10,
     },
 });
 
@@ -57,13 +64,13 @@ export default function index(){
     }
     return (
         <View style={styles.container}>
-            <SafeAreaView>
+            <SafeAreaView edges={["top"]}>
                 <View> 
                 <Text style={styles.Welcometext}>Our app will help you drink more water and lead a healthy lifestyle everyday!</Text>
             </View>
             </SafeAreaView>
-            <View>
-                <Logo style={styles.logoBox}/>
+            <View style={styles.logoBox}>
+                <Logo width="100%" height="100%" preserveAspectRatio="xMidYMid meet"/>
                 {/* <Image
                     source={require(../assets/svg/background.svg')}
                     style={styles.logo} /> */}
