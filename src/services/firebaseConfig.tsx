@@ -18,14 +18,15 @@ import { getAnalytics } from "firebase/analytics";
 const { getReactNativePersistence } = require("firebase/auth");
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "watertracker-46278.firebaseapp.com",
-  projectId: "watertracker-46278",
-  storageBucket: "watertracker-46278.firebasestorage.app",
-  messagingSenderId: "410271363753",
-  appId: "1:410271363753:web:a552fcd1831ebd4e8cefb8",
-  measurementId: "G-SJM5ZVW23K",
+  apiKey: "AIzaSyAmCTkz0mS6BKean94x4x9DQr_DMA0VGdA",
+  authDomain: "watertracker-6aaee.firebaseapp.com",
+  projectId: "watertracker-6aaee",
+  storageBucket: "watertracker-6aaee.firebasestorage.app",
+  messagingSenderId: "1082521389903",
+  appId: "1:1082521389903:web:d0077cb4ceece7b815933a",
+  measurementId: "G-R7C0J0M7E8"
 };
+
 
 // const app =initializeApp (firebaseConfig);
 

@@ -10,7 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#000",          // was "#fff"
+        backgroundColor: "#000",          
         justifyContent: "space-between",
     },
     actionContainer: {
