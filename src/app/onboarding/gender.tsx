@@ -14,53 +14,6 @@ const OPTIONS: { value: Gender; label: string; Avatar: typeof MaleAvatar }[] = [
   { value: 'female', label: 'Female', Avatar: FemaleAvatar },
 ];
 
-export default function GenderScreen() {
-  const router = useRouter();
-  const { data, update } = useOnboarding();
-
-  return (
-    <SafeAreaView style={styles.safe}>
-      {/* First step after sign up, so there is nowhere to go back to */}
-      <OnboardingHeader step={1} showBack={false} />
-
-      <View style={styles.content}>
-        <Text style={styles.title}>Choose your gender</Text>
-        <Text style={styles.subtitle}>We'll calculate your daily water goal just for you</Text>
-
-        <View style={styles.cards}>
-          {OPTIONS.map(({ value, label, Avatar }) => {
-            const selected = data.gender === value;
-            return (
-              <Pressable
-                key={value}
-                onPress={() => update({ gender: value })}
-                accessibilityRole="radio"
-                accessibilityState={{ selected }}
-                style={({ pressed }) => [
-                  styles.card,
-                  selected ? styles.cardSelected : styles.cardIdle,
-                  pressed && styles.cardPressed,
-                ]}
-              >
-                <Text style={[styles.cardLabel, selected && styles.cardLabelSelected]}>
-                  {label}
-                </Text>
-                <View style={styles.avatarWrap}>
-                  <Avatar width="80%" height="100%" preserveAspectRatio="xMidYMax meet" />
-                </View>
-              </Pressable>
-            );
-          })}
-        </View>
-      </View>
-
-      <View style={styles.footer}>
-        <NextButton onPress={() => router.push('../onboarding/weight')} />
-      </View>
-    </SafeAreaView>
-  );
-}
-
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
@@ -129,3 +82,50 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
   },
 });
+
+export default function GenderScreen() {
+  const router = useRouter();
+  const { data, update } = useOnboarding();
+
+  return (
+    <SafeAreaView style={styles.safe}>
+      {/* First step after sign up, so there is nowhere to go back to */}
+      <OnboardingHeader step={1} showBack={false} />
+
+      <View style={styles.content}>
+        <Text style={styles.title}>Choose your gender</Text>
+        <Text style={styles.subtitle}>We'll calculate your daily water goal just for you</Text>
+
+        <View style={styles.cards}>
+          {OPTIONS.map(({ value, label, Avatar }) => {
+            const selected = data.gender === value;
+            return (
+              <Pressable
+                key={value}
+                onPress={() => update({ gender: value })}
+                accessibilityRole="radio"
+                accessibilityState={{ selected }}
+                style={({ pressed }) => [
+                  styles.card,
+                  selected ? styles.cardSelected : styles.cardIdle,
+                  pressed && styles.cardPressed,
+                ]}
+              >
+                <Text style={[styles.cardLabel, selected && styles.cardLabelSelected]}>
+                  {label}
+                </Text>
+                <View style={styles.avatarWrap}>
+                  <Avatar width="80%" height="100%" preserveAspectRatio="xMidYMax meet" />
+                </View>
+              </Pressable>
+            );
+          })}
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <NextButton onPress={() => router.push('../onboarding/weight')} />
+      </View>
+    </SafeAreaView>
+  );
+}

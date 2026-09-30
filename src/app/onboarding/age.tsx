@@ -9,6 +9,30 @@ import { saveProfile, useOnboarding } from '@/components/onboarding/onboarding-c
 import { OnboardingHeader } from '@/components/onboarding/onboarding-header';
 import { OnboardingColors } from '@/constants/onboarding';
 
+const styles = StyleSheet.create({
+  safe: {
+    flex: 1,
+    backgroundColor: OnboardingColors.background,
+  },
+  content: {
+    flex: 1,
+    paddingTop: 48,
+  },
+  title: {
+    color: OnboardingColors.text,
+    fontSize: 30,
+    fontWeight: '800',
+    textAlign: 'center',
+  },
+  picker: {
+    marginTop: 120,
+  },
+  footer: {
+    paddingHorizontal: 16,
+    paddingBottom: 12,
+  },
+});
+
 export default function AgeScreen() {
   const router = useRouter();
   const { data, update } = useOnboarding();
@@ -45,27 +69,3 @@ export default function AgeScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: OnboardingColors.background,
-  },
-  content: {
-    flex: 1,
-    paddingTop: 48,
-  },
-  title: {
-    color: OnboardingColors.text,
-    fontSize: 30,
-    fontWeight: '800',
-    textAlign: 'center',
-  },
-  picker: {
-    marginTop: 120,
-  },
-  footer: {
-    paddingHorizontal: 16,
-    paddingBottom: 12,
-  },
-});
