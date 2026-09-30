@@ -47,7 +47,7 @@ export default function SignUpScreen({ navigation }: { navigation: any }) {
 
   // 3. Notify the user
   Alert.alert('Account created', `Welcome, ${fullName.trim()}!`, [
-    { text: 'Continue', onPress: () => router.replace('/(home)/homepage') },
+    { text: 'Continue', onPress: () => router.replace('/onboarding/gender') },
   ]);
 } catch (error) {
   const code = error instanceof FirebaseError ? error.code : 'unknown';

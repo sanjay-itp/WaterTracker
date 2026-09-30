@@ -13,6 +13,7 @@ export default function RootLayout() {
       <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(home)" options={{ headerShown: false }} />
+        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
       </Stack>
       <Toast/>
       </>
