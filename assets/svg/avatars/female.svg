@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <!-- top -->
+  <path d="M40 220 C44 186 70 172 100 172 C130 172 156 186 160 220 Z" fill="#E7C8E6"/>
+  <path d="M82 170 Q100 184 118 170 L118 178 Q100 190 82 178 Z" fill="#D9B4D8"/>
+  <!-- neck -->
+  <rect x="86" y="146" width="28" height="30" rx="10" fill="#EFC6A6"/>
+  <!-- bun -->
+  <circle cx="132" cy="30" r="22" fill="#232326"/>
+  <!-- back hair -->
+  <path d="M42 110 C36 60 66 32 104 32 C144 32 166 62 158 112 C156 130 150 140 144 144 L144 100 L56 100 L56 144 C50 140 44 128 42 110 Z" fill="#1E1E21"/>
+  <!-- ears -->
+  <ellipse cx="46" cy="108" rx="11" ry="15" fill="#F3CFB2"/>
+  <ellipse cx="154" cy="108" rx="11" ry="15" fill="#F3CFB2"/>
+  <!-- head -->
+  <ellipse cx="100" cy="104" rx="52" ry="56" fill="#F8DCC4"/>
+  <!-- bangs -->
+  <path d="M48 100 C46 62 72 40 104 40 C136 40 158 62 152 100 C144 82 138 74 132 70 L128 90 L118 70 L108 88 L100 68 L90 88 L82 70 L72 92 L68 72 C58 80 52 90 48 100 Z" fill="#232326"/>
+  <!-- eyes -->
+  <ellipse cx="82" cy="110" rx="10" ry="12" fill="#FFFFFF"/>
+  <ellipse cx="118" cy="110" rx="10" ry="12" fill="#FFFFFF"/>
+  <circle cx="84" cy="112" r="6" fill="#1D1D1F"/>
+  <circle cx="120" cy="112" r="6" fill="#1D1D1F"/>
+  <circle cx="86" cy="109" r="2" fill="#FFFFFF"/>
+  <circle cx="122" cy="109" r="2" fill="#FFFFFF"/>
+  <path d="M71 100 L74 104" stroke="#1D1D1F" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M129 100 L126 104" stroke="#1D1D1F" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- nose and cheeks -->
+  <ellipse cx="100" cy="126" rx="6" ry="5" fill="#F1B79C"/>
+  <ellipse cx="70" cy="130" rx="10" ry="6" fill="#F6BFB0" opacity="0.8"/>
+  <ellipse cx="130" cy="130" rx="10" ry="6" fill="#F6BFB0" opacity="0.8"/>
+  <path d="M93 141 Q100 145 107 141" stroke="#C98B74" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

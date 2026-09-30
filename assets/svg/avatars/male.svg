@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <!-- shirt -->
+  <path d="M40 220 C44 186 70 172 100 172 C130 172 156 186 160 220 Z" fill="#3C82E6"/>
+  <path d="M84 172 Q100 186 116 172 Z" fill="#2B63B8"/>
+  <!-- neck -->
+  <rect x="86" y="146" width="28" height="30" rx="10" fill="#EFC6A6"/>
+  <!-- ears -->
+  <ellipse cx="46" cy="104" rx="12" ry="16" fill="#F3CFB2"/>
+  <ellipse cx="154" cy="104" rx="12" ry="16" fill="#F3CFB2"/>
+  <!-- head -->
+  <ellipse cx="100" cy="100" rx="54" ry="58" fill="#F8DCC4"/>
+  <!-- hair -->
+  <path d="M46 96 C40 52 70 28 104 30 C140 32 162 58 154 98 C150 80 140 66 128 62 C118 72 92 74 72 64 C60 72 52 82 46 96 Z" fill="#8A5A3B"/>
+  <path d="M72 64 C80 50 96 44 112 48 C104 54 94 60 72 64 Z" fill="#A36E4A"/>
+  <!-- brows -->
+  <path d="M70 86 Q80 78 90 84" stroke="#6E452C" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M110 84 Q120 78 130 86" stroke="#6E452C" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <!-- eyes -->
+  <ellipse cx="82" cy="104" rx="10" ry="12" fill="#FFFFFF"/>
+  <ellipse cx="118" cy="104" rx="10" ry="12" fill="#FFFFFF"/>
+  <circle cx="84" cy="106" r="6" fill="#1D1D1F"/>
+  <circle cx="120" cy="106" r="6" fill="#1D1D1F"/>
+  <circle cx="86" cy="103" r="2" fill="#FFFFFF"/>
+  <circle cx="122" cy="103" r="2" fill="#FFFFFF"/>
+  <!-- nose and cheeks -->
+  <ellipse cx="100" cy="122" rx="7" ry="6" fill="#F1B79C"/>
+  <ellipse cx="70" cy="126" rx="10" ry="6" fill="#F6C3AE" opacity="0.7"/>
+  <ellipse cx="130" cy="126" rx="10" ry="6" fill="#F6C3AE" opacity="0.7"/>
+  <path d="M92 138 Q100 142 108 138" stroke="#C98B74" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>
