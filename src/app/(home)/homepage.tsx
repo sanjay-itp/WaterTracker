@@ -29,22 +29,11 @@ import { CUP_SIZES_ML, TIPS } from '@/constants/home';
 type RecordAction = 'edit' | 'delete';
 
 export default function HomeScreen() {
-  const {
-    colors,
-    settings,
-    records,
-    dailyGoalMl,
-    todayTotalMl,
-    addRecord,
-    updateRecord,
-    deleteRecord,
-    updateSettings,
-  } = useWater();
+  const { colors, settings, records, dailyGoalMl, todayTotalMl, addRecord, updateRecord, deleteRecord, updateSettings} = useWater();
   const { width } = useWindowDimensions();
 
   const [tipIndex, setTipIndex] = useState(() => new Date().getDate() % TIPS.length);
   const [cupPickerOpen, setCupPickerOpen] = useState(false);
-  // Time the add dialog was opened, or null when closed
   const [addOpenedAt, setAddOpenedAt] = useState<number | null>(null);
   const [menuRecord, setMenuRecord] = useState<WaterRecord | null>(null);
   const [editRecord, setEditRecord] = useState<WaterRecord | null>(null);
@@ -59,7 +48,6 @@ export default function HomeScreen() {
       ? null
       : nextReminderDate(new Date(), settings.wakeMin, settings.bedMin, settings.reminderIntervalMin);
 
-  // Gauge geometry, scaled to the screen width
   const size = Math.min(width - 32, 380);
   const radius = size / 2 - 8;
   const circle = radius * 1.64;
@@ -71,7 +59,7 @@ export default function HomeScreen() {
       deleteRecord(menuRecord.id);
       return;
     }
-    // Let the menu sheet finish closing first; iOS can't show two modals at once
+    
     const record = menuRecord;
     setTimeout(() => setEditRecord(record), 350);
   };

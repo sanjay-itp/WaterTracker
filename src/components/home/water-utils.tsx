@@ -34,7 +34,6 @@ export function formatHeight(cm: number, unit: UnitSystem) {
   return `${Math.round(cm)} cm`;
 }
 
-// Minutes since midnight <-> "06:00 AM"
 export function formatMinutes(minutes: number) {
   const h24 = Math.floor(minutes / 60) % 24;
   const m = minutes % 60;
@@ -88,7 +87,6 @@ export function countsByDay(records: WaterRecord[]) {
   return counts;
 }
 
-// Reminder slots for one day, from wake-up time to bedtime, every intervalMin
 export function reminderSlots(wakeMin: number, bedMin: number, intervalMin: number) {
   const end = bedMin > wakeMin ? bedMin : bedMin + 24 * 60;
   const slots: number[] = [];
@@ -96,7 +94,6 @@ export function reminderSlots(wakeMin: number, bedMin: number, intervalMin: numb
   return slots;
 }
 
-// Next reminder after `now`, as a Date
 export function nextReminderDate(
   now: Date,
   wakeMin: number,

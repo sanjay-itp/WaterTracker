@@ -7,8 +7,7 @@ type Props = {
   progressColor: string;
   strokeWidth?: number;
 };
-
-// Arc runs from lower left, over the top, to lower right (240 degrees).
+ 
 const START = -120;
 const SWEEP = 240;
 

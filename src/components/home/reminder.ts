@@ -1,6 +1,5 @@
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
-
 import { addDays, reminderSlots, startOfDay } from './water-utils';
 
 export type ReminderMode = 'device' | 'silent' | 'off';
@@ -18,7 +17,6 @@ type ReminderOptions = {
 
 const CHANNEL_SOUND = 'reminders';
 const CHANNEL_SILENT = 'reminders-silent';
-// iOS keeps at most 64 pending local notifications per app
 const MAX_SCHEDULED = 60;
 
 const supported = Platform.OS === 'ios' || Platform.OS === 'android';
@@ -56,10 +54,6 @@ async function ensureChannels() {
   });
 }
 
-// Replaces all pending reminders. Reminders are one-off notifications for the
-// rest of today and tomorrow, so they can skip today once the goal is reached
-// (when "Further reminder" is off). The app reschedules every time it opens
-// or a drink is logged.
 export async function scheduleReminders(options: ReminderOptions) {
   if (!supported) return;
 
@@ -78,7 +72,6 @@ export async function scheduleReminders(options: ReminderOptions) {
   for (const dayOffset of skipToday ? [1] : [0, 1]) {
     const day = addDays(today, dayOffset);
     for (const minutes of slots) {
-      // Slots past midnight belong to the next calendar day
       const extraDay = minutes < options.wakeMin ? 1 : 0;
       const date = new Date(addDays(day, extraDay).getTime() + minutes * 60 * 1000);
       if (date.getTime() > now) dates.push(date);

@@ -1,17 +1,7 @@
 import { useRouter } from 'expo-router';
 import { signOut } from 'firebase/auth';
 import { useState } from 'react';
-import {
-  Linking,
-  Platform,
-  Pressable,
-  ScrollView,
-  Share,
-  StyleSheet,
-  Switch,
-  Text,
-  View,
-} from 'react-native';
+import { Linking, Platform, Pressable, ScrollView, Share, StyleSheet, Switch, Text, View} from 'react-native';
 
 import { OptionSheet, SheetOption } from '@/components/home/option-sheet';
 import { useWater } from '@/components/home/water-store';

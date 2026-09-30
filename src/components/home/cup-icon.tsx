@@ -7,7 +7,7 @@ type Props = {
   plus?: boolean;
 };
 
-// Mug with water inside, optionally with a "+" on it (the add button)
+
 export function CupIcon({ size = 56, water = '#3FA2FF', outline = '#111111', plus = false }: Props) {
   return (
     <Svg width={size} height={size} viewBox="0 0 64 64">

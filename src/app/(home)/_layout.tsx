@@ -17,7 +17,8 @@ function HomeTabs() {
     );
   }
 
-  // Signed in but never filled in their details (new device, or skipped)
+ 
+  
   if (!profile) return <Redirect href="/onboarding/gender" />;
 
   return (

@@ -5,9 +5,7 @@ import { HomePalette } from '@/constants/home';
 type Props = {
   width: number;
   height: number;
-  // Percent of goal per slot (day or month); null means no data
   values: (number | null)[];
-  // Which slots get a label under the axis
   labels: { index: number; text: string }[];
   caption?: string;
   colors: HomePalette;

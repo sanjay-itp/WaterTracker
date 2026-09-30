@@ -6,15 +6,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } fr
 import { AddRecordModal } from '@/components/home/add-record-modal';
 import { BarChart } from '@/components/home/bar-chart';
 import { useWater } from '@/components/home/water-store';
-import {
-  addDays,
-  countsByDay,
-  dayKey,
-  daysInMonth,
-  formatVolume,
-  startOfDay,
-  totalsByDay,
-} from '@/components/home/water-utils';
+import { addDays, countsByDay, dayKey, daysInMonth, formatVolume, startOfDay, totalsByDay} from '@/components/home/water-utils';
 
 type Mode = 'month' | 'year';
 
@@ -38,7 +30,7 @@ export default function HistoryScreen() {
     return total ? (total / dailyGoalMl) * 100 : null;
   };
 
-  // Chart data for the selected month or year
+
   let values: (number | null)[];
   let labels: { index: number; text: string }[];
   let title: string;
@@ -74,7 +66,6 @@ export default function HistoryScreen() {
     setMonth(next.getMonth());
   };
 
-  // This week, Sunday to Saturday
   const today = startOfDay(now);
   const weekStart = addDays(today, -today.getDay());
   const week = WEEKDAYS.map((label, i) => {
@@ -83,7 +74,6 @@ export default function HistoryScreen() {
     return { label, pct, future: date > today };
   });
 
-  // Report: last 7 days (today included) and this month so far
   const last7 = Array.from({ length: 7 }, (_, i) => dayKey(addDays(today, -i)));
   const weekTotal = last7.reduce((sum, key) => sum + (totals.get(key) ?? 0), 0);
   const weekCount = last7.reduce((sum, key) => sum + (counts.get(key) ?? 0), 0);

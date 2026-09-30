@@ -1,21 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useColorScheme } from 'react-native';
-
-import {
-  OnboardingData,
-  PROFILE_STORAGE_KEY,
-  calculateDailyGoalMl,
-} from '@/components/onboarding/onboarding-context';
+import { OnboardingData, PROFILE_STORAGE_KEY, calculateDailyGoalMl} from '@/components/onboarding/onboarding-context';
 import { HomeColors, HomePalette } from '@/constants/home';
-
 import { ReminderMode, ReminderSound, scheduleReminders } from './reminder';
 import { UnitSystem, WaterRecord, dayKey, newId } from './water-utils';
 
 export type Profile = OnboardingData & { dailyGoalMl: number };
-
 export type ThemeSetting = 'light' | 'dark' | 'system';
-
 export type Settings = {
   cupSizeMl: number;
   // null means "use the recommended goal from the profile"

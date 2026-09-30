@@ -1,9 +1,7 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
-
 import { CUP_SIZES_ML, HomePalette } from '@/constants/home';
-
 import { useWater } from './water-store';
 import { addDays, formatTime, formatVolume, startOfDay } from './water-utils';
 

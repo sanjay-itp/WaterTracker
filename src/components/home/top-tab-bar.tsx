@@ -1,7 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import type { BottomTabBarProps } from 'expo-router/js-tabs';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-
 import { useWater } from './water-store';
 
 const ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
@@ -10,7 +9,7 @@ const ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
   settings: 'settings-sharp',
 };
 
-// Blue tab bar across the top of the screen, like the reference design
+
 export function TopTabBar({ state, descriptors, navigation, insets }: BottomTabBarProps) {
   const { colors } = useWater();
 

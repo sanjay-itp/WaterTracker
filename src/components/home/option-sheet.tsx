@@ -2,7 +2,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useEffect, useRef } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import { useWater } from './water-store';
 
 export type SheetOption<T> = {
@@ -23,8 +22,6 @@ type Props<T> = {
 
 const ROW_HEIGHT = 52;
 
-// Bottom sheet with a list of choices. Works the same on iOS, Android and web,
-// so it is also used for confirmations and record menus.
 export function OptionSheet<T>({
   visible,
   title,
@@ -39,7 +36,7 @@ export function OptionSheet<T>({
   const scrollRef = useRef<ScrollView>(null);
   const selectedIndex = options.findIndex((o) => o.value === selected);
 
-  // Long lists (weights, times) open scrolled to the current value
+
   useEffect(() => {
     if (!visible || selectedIndex < 3) return;
     const id = setTimeout(() => {
@@ -56,7 +53,6 @@ export function OptionSheet<T>({
             styles.sheet,
             { backgroundColor: colors.card, paddingBottom: insets.bottom + 12 },
           ]}
-          // Stops taps inside the sheet from closing it
           onPress={() => {}}
         >
           <View style={[styles.handle, { backgroundColor: colors.border }]} />
