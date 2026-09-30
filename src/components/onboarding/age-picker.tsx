@@ -23,6 +23,43 @@ type Props = {
   onChange: (value: number) => void;
 };
 
+const styles = StyleSheet.create({
+  container: {
+    height: CIRCLE_SELECTED + 20,
+    justifyContent: 'center',
+  },
+  slot: {
+    width: ITEM_WIDTH,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  circle: {
+    width: CIRCLE,
+    height: CIRCLE,
+    borderRadius: CIRCLE / 2,
+    backgroundColor: OnboardingColors.card,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  circleSelected: {
+    width: CIRCLE_SELECTED,
+    height: CIRCLE_SELECTED,
+    borderRadius: CIRCLE_SELECTED / 2,
+    backgroundColor: OnboardingColors.primary,
+    boxShadow: '0px 6px 24px rgba(26, 102, 255, 0.45)',
+  },
+  label: {
+    color: '#7C8290',
+    fontSize: 18,
+    fontWeight: '700',
+  },
+  labelSelected: {
+    color: '#E4ECFF',
+    fontSize: 36,
+    fontWeight: '800',
+  },
+});
+
 export function AgePicker({ min = 10, max = 100, value, onChange }: Props) {
   const scrollRef = useRef<ScrollView>(null);
   const lastValue = useRef(value);
@@ -91,40 +128,3 @@ export function AgePicker({ min = 10, max = 100, value, onChange }: Props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: CIRCLE_SELECTED + 20,
-    justifyContent: 'center',
-  },
-  slot: {
-    width: ITEM_WIDTH,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circle: {
-    width: CIRCLE,
-    height: CIRCLE,
-    borderRadius: CIRCLE / 2,
-    backgroundColor: OnboardingColors.card,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  circleSelected: {
-    width: CIRCLE_SELECTED,
-    height: CIRCLE_SELECTED,
-    borderRadius: CIRCLE_SELECTED / 2,
-    backgroundColor: OnboardingColors.primary,
-    boxShadow: '0px 6px 24px rgba(26, 102, 255, 0.45)',
-  },
-  label: {
-    color: '#7C8290',
-    fontSize: 18,
-    fontWeight: '700',
-  },
-  labelSelected: {
-    color: '#E4ECFF',
-    fontSize: 36,
-    fontWeight: '800',
-  },
-});

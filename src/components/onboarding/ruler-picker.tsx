@@ -65,43 +65,6 @@ export function RulerPicker({
 
   const sidePadding = width / 2 - TICK_SPACING / 2;
 
-  return (
-    <View style={styles.panel}>
-      <Text style={styles.value}>{formatValue(value)}</Text>
-      <Text style={styles.unit}>{unitLabel}</Text>
-
-      <View style={styles.ruler} onLayout={handleLayout}>
-        {width > 0 && (
-          <ScrollView
-            ref={scrollRef}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            snapToInterval={TICK_SPACING}
-            decelerationRate="fast"
-            scrollEventThrottle={16}
-            onScroll={handleScroll}
-            contentContainerStyle={{ paddingHorizontal: sidePadding }}
-          >
-            {ticks.map((tick) => {
-              const isMajor = (tick - min) % labelEvery === 0;
-              return (
-                <View key={tick} style={styles.tickSlot}>
-                  {isMajor && (
-                    <Text style={styles.tickLabel}>{formatValue(tick)}</Text>
-                  )}
-                  <View style={[styles.tick, isMajor && styles.tickMajor]} />
-                </View>
-              );
-            })}
-          </ScrollView>
-        )}
-
-        <View style={styles.indicator} />
-      </View>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   panel: {
     backgroundColor: OnboardingColors.panel,
@@ -167,3 +130,41 @@ const styles = StyleSheet.create({
     backgroundColor: OnboardingColors.indicator,
   },
 });
+
+  return (
+    <View style={styles.panel}>
+      <Text style={styles.value}>{formatValue(value)}</Text>
+      <Text style={styles.unit}>{unitLabel}</Text>
+
+      <View style={styles.ruler} onLayout={handleLayout}>
+        {width > 0 && (
+          <ScrollView
+            ref={scrollRef}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            snapToInterval={TICK_SPACING}
+            decelerationRate="fast"
+            scrollEventThrottle={16}
+            onScroll={handleScroll}
+            contentContainerStyle={{ paddingHorizontal: sidePadding }}
+          >
+            {ticks.map((tick) => {
+              const isMajor = (tick - min) % labelEvery === 0;
+              return (
+                <View key={tick} style={styles.tickSlot}>
+                  {isMajor && (
+                    <Text style={styles.tickLabel}>{formatValue(tick)}</Text>
+                  )}
+                  <View style={[styles.tick, isMajor && styles.tickMajor]} />
+                </View>
+              );
+            })}
+          </ScrollView>
+        )}
+
+        <View style={styles.indicator} />
+      </View>
+    </View>
+  );
+}
+

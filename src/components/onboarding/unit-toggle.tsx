@@ -13,27 +13,6 @@ type Props<T extends string> = {
   onChange: (value: T) => void;
 };
 
-export function UnitToggle<T extends string>({ options, value, onChange }: Props<T>) {
-  return (
-    <View style={styles.row}>
-      {options.map((option) => {
-        const selected = option.value === value;
-        return (
-          <Pressable
-            key={option.value}
-            onPress={() => onChange(option.value)}
-            accessibilityRole="button"
-            accessibilityState={{ selected }}
-            style={[styles.pill, selected ? styles.pillSelected : styles.pillIdle]}
-          >
-            <Text style={[styles.label, selected && styles.labelSelected]}>{option.label}</Text>
-          </Pressable>
-        );
-      })}
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -63,3 +42,24 @@ const styles = StyleSheet.create({
     color: '#DCE6FF',
   },
 });
+
+export function UnitToggle<T extends string>({ options, value, onChange }: Props<T>) {
+  return (
+    <View style={styles.row}>
+      {options.map((option) => {
+        const selected = option.value === value;
+        return (
+          <Pressable
+            key={option.value}
+            onPress={() => onChange(option.value)}
+            accessibilityRole="button"
+            accessibilityState={{ selected }}
+            style={[styles.pill, selected ? styles.pillSelected : styles.pillIdle]}
+          >
+            <Text style={[styles.label, selected && styles.labelSelected]}>{option.label}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}

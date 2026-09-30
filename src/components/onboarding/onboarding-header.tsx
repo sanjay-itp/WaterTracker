@@ -9,36 +9,6 @@ type Props = {
   showBack?: boolean;
 };
 
-export function OnboardingHeader({ step, showBack = true }: Props) {
-  const router = useRouter();
-  const progress = Math.min(step / ONBOARDING_TOTAL_STEPS, 1);
-
-  return (
-    <View style={styles.row}>
-      <View style={styles.side}>
-        {showBack && (
-          <Pressable
-            onPress={() => router.back()}
-            hitSlop={8}
-            accessibilityRole="button"
-            accessibilityLabel="Go back"
-            style={({ pressed }) => [styles.backButton, pressed && styles.pressed]}
-          >
-            <Ionicons name="chevron-back" size={22} color={OnboardingColors.text} />
-          </Pressable>
-        )}
-      </View>
-
-      <View style={styles.track}>
-        <View style={[styles.fill, { width: `${progress * 100}%` }]} />
-      </View>
-
-      {/* Mirrors the back button width so the bar stays centered */}
-      <View style={styles.side} />
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -76,3 +46,34 @@ const styles = StyleSheet.create({
     backgroundColor: OnboardingColors.primary,
   },
 });
+
+export function OnboardingHeader({ step, showBack = true }: Props) {
+  const router = useRouter();
+  const progress = Math.min(step / ONBOARDING_TOTAL_STEPS, 1);
+
+  return (
+    <View style={styles.row}>
+      <View style={styles.side}>
+        {showBack && (
+          <Pressable
+            onPress={() => router.back()}
+            hitSlop={8}
+            accessibilityRole="button"
+            accessibilityLabel="Go back"
+            style={({ pressed }) => [styles.backButton, pressed && styles.pressed]}
+          >
+            <Ionicons name="chevron-back" size={22} color={OnboardingColors.text} />
+          </Pressable>
+        )}
+      </View>
+
+      <View style={styles.track}>
+        <View style={[styles.fill, { width: `${progress * 100}%` }]} />
+      </View>
+
+      {/* Mirrors the back button width so the bar stays centered */}
+      <View style={styles.side} />
+    </View>
+  );
+}
+

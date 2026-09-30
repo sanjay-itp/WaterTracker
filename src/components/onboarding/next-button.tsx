@@ -8,23 +8,6 @@ type Props = {
   loading?: boolean;
 };
 
-export function NextButton({ title = 'Next', onPress, loading }: Props) {
-  return (
-    <Pressable
-      onPress={onPress}
-      disabled={loading}
-      accessibilityRole="button"
-      style={({ pressed }) => [styles.button, pressed && styles.pressed]}
-    >
-      {loading ? (
-        <ActivityIndicator color={OnboardingColors.text} />
-      ) : (
-        <Text style={styles.text}>{title}</Text>
-      )}
-    </Pressable>
-  );
-}
-
 const styles = StyleSheet.create({
   button: {
     height: 64,
@@ -44,3 +27,21 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
 });
+
+export function NextButton({ title = 'Next', onPress, loading }: Props) {
+  return (
+    <Pressable
+      onPress={onPress}
+      disabled={loading}
+      accessibilityRole="button"
+      style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+    >
+      {loading ? (
+        <ActivityIndicator color={OnboardingColors.text} />
+      ) : (
+        <Text style={styles.text}>{title}</Text>
+      )}
+    </Pressable>
+  );
+}
+
