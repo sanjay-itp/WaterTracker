@@ -1,14 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  LayoutChangeEvent,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
+import { LayoutChangeEvent, NativeScrollEvent, NativeSyntheticEvent, ScrollView, StyleSheet, Text, View} from 'react-native';
 import { OnboardingColors } from '@/constants/onboarding';
 
 const TICK_SPACING = 10;

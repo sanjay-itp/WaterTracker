@@ -1,15 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  LayoutChangeEvent,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
+import { LayoutChangeEvent, NativeScrollEvent, NativeSyntheticEvent, Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import { OnboardingColors } from '@/constants/onboarding';
 
 const ITEM_WIDTH = 104;
