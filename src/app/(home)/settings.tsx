@@ -229,7 +229,7 @@ export default function SettingsScreen() {
           />
         </>
       )}
-      <Row
+      {/* <Row
         label="Wake-up time"
         value={formatMinutes(settings.wakeMin)}
         onPress={() =>
@@ -252,7 +252,7 @@ export default function SettingsScreen() {
             onSelect: (v) => updateSettings({ bedMin: Number(v) }),
           })
         }
-      />
+      /> */}
 
       <Section title="Other" />
       <SwitchRow
