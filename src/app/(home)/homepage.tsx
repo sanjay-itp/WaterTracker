@@ -1,13 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useState } from 'react';
-import {
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions} from 'react-native';
 
 import Mascot from '@/assets/svg/mascot.svg';
 import { AddRecordModal } from '@/components/home/add-record-modal';
@@ -15,15 +8,7 @@ import { CupIcon } from '@/components/home/cup-icon';
 import { OptionSheet } from '@/components/home/option-sheet';
 import { ProgressArc } from '@/components/home/progress-arc';
 import { useWater } from '@/components/home/water-store';
-import {
-  WaterRecord,
-  dayKey,
-  formatTime,
-  formatVolume,
-  nextReminderDate,
-  volumeNumber,
-  volumeUnitLabel,
-} from '@/components/home/water-utils';
+import { WaterRecord, dayKey, formatTime, formatVolume, nextReminderDate, volumeNumber, volumeUnitLabel } from '@/components/home/water-utils';
 import { CUP_SIZES_ML, TIPS } from '@/constants/home';
 
 type RecordAction = 'edit' | 'delete';
