@@ -229,30 +229,6 @@ export default function SettingsScreen() {
           />
         </>
       )}
-      {/* <Row
-        label="Wake-up time"
-        value={formatMinutes(settings.wakeMin)}
-        onPress={() =>
-          open({
-            title: 'Wake-up time',
-            options: timeOptions,
-            selected: settings.wakeMin,
-            onSelect: (v) => updateSettings({ wakeMin: Number(v) }),
-          })
-        }
-      />
-      <Row
-        label="Bedtime"
-        value={formatMinutes(settings.bedMin)}
-        onPress={() =>
-          open({
-            title: 'Bedtime',
-            options: timeOptions,
-            selected: settings.bedMin,
-            onSelect: (v) => updateSettings({ bedMin: Number(v) }),
-          })
-        }
-      /> */}
 
       <Section title="Other" />
       <SwitchRow
